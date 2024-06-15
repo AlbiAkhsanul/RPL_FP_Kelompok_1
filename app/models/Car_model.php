@@ -34,8 +34,7 @@ class Car_model
         $this->db->bind('NOPOL', $data['NOPOL']);
         $this->db->bind('MERK', $data['MERK']);
         $this->db->bind('TAHUN', $data['TAHUN']);
-        $this->db->bind('KAPASITAS', $data['KAPASITAS']);
-        $this->db->bind('PENUMPANG', $data['PENUMPANG']);
+        $this->db->bind('KAPASITAS_PENUMPANG', $data['KAPASITAS_PENUMPANG']);
         $this->db->bind('FOTO_MOBIL', $carImg);
         $this->db->bind('STATUS_MOBIL', $data['STATUS_MOBIL']);
 
@@ -127,11 +126,10 @@ class Car_model
         $this->db->bind('NOPOL', $data['NOPOL']);
         $this->db->bind('MERK', $data['MERK']);
         $this->db->bind('TAHUN', $data['TAHUN']);
-        $this->db->bind('KAPASITAS', $data['KAPASITAS']);
-        $this->db->bind('PENUMPANG', $data['PENUMPANG']);
+        $this->db->bind('KAPASITAS_PENUMPANG', $data['KAPASITAS_PENUMPANG']);
         $this->db->bind('FOTO_MOBIL', $carImg);
         $this->db->bind('STATUS_MOBIL', $data['STATUS_MOBIL']);
-        $this->db->bind('car_id', $id);
+        $this->db->bind('ID_MOBIL', $id);
 
         $this->db->execute();
 

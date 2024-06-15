@@ -1,8 +1,9 @@
 <?php $car = $data['car'] ?>
 <h1>Edit List Mobil</h1>
 
-<form action="<?= BASEURL; ?>/car/update/<?= $car['car_id']; ?>" method="post" enctype="multipart/form-data">
+<form action="<?= BASEURL; ?>/car/update/<?= $car['ID_MOBIL']; ?>" method="post" enctype="multipart/form-data">
     <ul>
+        <input type="hidden" name="OLD_FOTO_MOBIL" id="foto" value="<?= $car['FOTO_MOBIL']; ?>">
         <li>
             <label for="NOPOL">Nomor Polisi: </label>
             <input type="text" name="NOPOL" id="NOPOL" value="<?= $car['NOPOL']; ?>" required>
