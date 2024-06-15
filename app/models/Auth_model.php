@@ -12,7 +12,7 @@ class Auth_model
 
     public function verify($data)
     {
-        $email = strtolower(stripcslashes($data['email']));
+        $email = strtolower(stripcslashes($data['EMAIL']));
         $password = $data['PASSWORD'];
         $query = "SELECT * FROM {$this->table_name} WHERE EMAIL_USER = :EMAIL_USER";
 

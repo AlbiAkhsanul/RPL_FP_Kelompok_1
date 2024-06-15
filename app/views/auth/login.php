@@ -3,12 +3,12 @@
 <form action="<?= BASEURL; ?>/auth/authenticate" method="post">
     <ul>
         <li>
-            <label for="email">Email: </label>
-            <input type="text" name="email" id="email" autofocus required>
+            <label for="EMAIL">Email: </label>
+            <input type="text" name="EMAIL" id="EMAIL" autofocus required>
         </li>
         <li>
-            <label for="password">Password: </label>
-            <input type="password" name="password" id="password" autocomplete="off" required>
+            <label for="PASSWORD">Password: </label>
+            <input type="password" name="PASSWORD" id="PASSWORD" autocomplete="off" required>
         </li>
         <li>
             <input type="checkbox" name="remember">
