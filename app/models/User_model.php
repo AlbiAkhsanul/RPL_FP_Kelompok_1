@@ -2,7 +2,7 @@
 
 class User_model
 {
-    private $table_name = 'users';
+    private $table_name = 'user';
     private $db;
 
     public function __construct()
@@ -12,15 +12,15 @@ class User_model
 
     function addUser($data)
     {
-        $nama = ucwords(htmlspecialchars($data['nama']));
-        $email = strtolower(htmlspecialchars($data['email']));
-        $password = $data['password'];
-        $passwordConfirm = $data['password_confirm'];
-        $no_telp = $data['no_telp'];
+        $nama = ucwords(htmlspecialchars($data['NAMA']));
+        $email = strtolower(htmlspecialchars($data['EMAIL_USER']));
+        $password = $data['PASSWORD'];
+        $passwordConfirm = $data['PASSWORD_CONFIRM'];
+        $no_telp = $data['NO_TELP'];
         // Cek email sudah ada apa belum
-        $query = "SELECT email_user FROM {$this->table_name} WHERE email_user = :email_user";
+        $query = "SELECT EMAIL_USER FROM {$this->table_name} WHERE EMAIL_USER = :EMAIL_USER";
         $this->db->query($query);
-        $this->db->bind('email_user', $email);
+        $this->db->bind('EMAIL_USER', $email);
 
         if ($this->db->resultSet()) {
             echo "
@@ -46,14 +46,14 @@ class User_model
         $password = password_hash($password, PASSWORD_DEFAULT);
 
         // Memasukan kedalam database
-        $query = "INSERT INTO {$this->table_name} (nama_user,email_user,password,no_telp_user,is_admin) VALUES 
-                  (:nama_user,:email_user,:password,:no_telp_user,:is_admin)";
+        $query = "INSERT INTO {$this->table_name} (NAMA,EMAIL_USER,PASSWORD,NO_TELP,IS_ADMIN) VALUES 
+                  (:NAMA,:EMAIL_USER,:PASSWORD,:NO_TELP,:IS_ADMIN)";
         $this->db->query($query);
-        $this->db->bind('nama_user', $nama);
-        $this->db->bind('email_user', $email);
-        $this->db->bind('password', $password);
-        $this->db->bind('no_telp_user', $no_telp);
-        $this->db->bind('is_admin', false);
+        $this->db->bind('NAMA', $nama);
+        $this->db->bind('EMAIL_USER', $email);
+        $this->db->bind('PASSWORD', $password);
+        $this->db->bind('NO_TELP', $no_telp);
+        $this->db->bind('IS_ADMIN', false);
 
         $this->db->execute();
 
@@ -62,9 +62,9 @@ class User_model
 
     public function getUserById($id)
     {
-        $this->db->query("SELECT * FROM {$this->table_name} WHERE user_id=:user_id");
+        $this->db->query("SELECT * FROM {$this->table_name} WHERE ID_USER=:ID_USER");
         // untuk menghindari sql injection
-        $this->db->bind('user_id', $id);
+        $this->db->bind('ID_USER', $id);
         return $this->db->single();
     }
 }

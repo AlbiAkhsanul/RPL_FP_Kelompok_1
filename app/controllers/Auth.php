@@ -13,20 +13,20 @@ class Auth extends Controller
             $num = $_COOKIE['num'] - 7;
             $key = $_COOKIE['key'];
 
-            $query = "SELECT username FROM users WHERE user_id = :user_id";
+            $query = "SELECT USERNAME FROM user WHERE ID_USER = :ID_USER";
 
             $this->db->query($query);
-            $this->db->bind('user_id', $num);
+            $this->db->bind('ID_USER', $num);
 
             $row = $this->db->single();
             if ($row) {
-                $username = $row['username'];
+                $username = $row['USERNAME'];
                 $hashedValue = hash('sha256', $num . $username . $num);
 
                 if ($key === $hashedValue) {
                     $_SESSION['login'] = true;
                     $_SESSION['user_id'] = $num;
-                    $_SESSION['is_admin'] = $row['is_admin'];
+                    $_SESSION['is_admin'] = $row['IS_ADMIN'];
                 }
             }
         }

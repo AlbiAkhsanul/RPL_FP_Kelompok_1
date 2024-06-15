@@ -3,24 +3,24 @@
 <form action="<?= BASEURL; ?>/auth/store" method="post">
     <ul>
         <li>
-            <label for="nama">Nama: </label>
-            <input type="text" name="nama" id="nama" autocomplete="off" autofocus required>
+            <label for="NAMA">Nama: </label>
+            <input type="text" name="NAMA" id="NAMA" autocomplete="off" autofocus required>
         </li>
         <li>
-            <label for="email">Email: </label>
-            <input type="text" name="email" id="email" autocomplete="off" autofocus required>
+            <label for="EMAIL_USER">Email: </label>
+            <input type="text" name="EMAIL_USER" id="EMAIL_USER" autocomplete="off" autofocus required>
         </li>
         <li>
-            <label for="password">Password: </label>
-            <input type="password" name="password" id="password" autocomplete="off" required>
+            <label for="PASSWORD">Password: </label>
+            <input type="password" name="PASSWORD" id="PASSWORD" autocomplete="off" required>
         </li>
         <li>
-            <label for="password_confirm">Konfirmasi Password : </label>
-            <input type="password" name="password_confirm" id="password_confirm" autocomplete="off" required>
+            <label for="PASSWORD_CONFIRM">Konfirmasi Password : </label>
+            <input type="password" name="PASSWORD_CONFIRM" id="PASSWORD_CONFIRM" autocomplete="off" required>
         </li>
         <li>
-            <label for="no_telp">No Telp : </label>
-            <input type="number" name="no_telp" id="no_telp" autocomplete="off" required>
+            <label for="NO_TELP">No Telp : </label>
+            <input type="number" name="NO_TELP" id="NO_TELP" autocomplete="off" required>
         </li>
         <li>
             <button type="submit" name="SignUp">Sign Up</button>
