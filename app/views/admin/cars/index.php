@@ -20,15 +20,15 @@ $cars = $data['cars'];
 <?php else : ?>
     <?php foreach ($cars as $car) : ?>
         <li>
-            <a href="<?= BASEURL ?>/car/show/<?= $car['car_id'] ?>">
+            <a href="<?= BASEURL ?>/car/show/<?= $car['ID_MOBIL'] ?>">
                 <h5>
-                    >> [<?= $car['car_id'] ?>][<?= $car['jenis_mobil'] ?>] <?= $car['nama_mobil'] ?> (<?= $car['status_mobil'] === 1 ? 'Available' : 'Not Available' ?>)
+                    >> [<?= $car['ID_MOBIL'] ?>][<?= $car['JENIS_MOBIL'] ?>] <?= $car['nama_mobil'] ?> (<?= $car['status_mobil'] === 1 ? 'Available' : 'Not Available' ?>)
                 </h5>
             </a>
-            <a href="<?= BASEURL ?>/car/edit/<?= $car['car_id'] ?>">
+            <a href="<?= BASEURL ?>/car/edit/<?= $car['ID_MOBIL'] ?>">
                 <button>Edit Mobil</button>
             </a>
-            <a href="<?= BASEURL ?>/car/delete/<?= $car['car_id'] ?>">
+            <a href="<?= BASEURL ?>/car/delete/<?= $car['ID_MOBIL'] ?>">
                 <button>Delete Mobil</button>
             </a>
         </li>

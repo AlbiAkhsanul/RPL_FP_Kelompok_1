@@ -3,23 +3,12 @@
 <form action="<?= BASEURL; ?>/car/store" method="post" enctype="multipart/form-data">
     <ul>
         <li>
-            <label for="car_brand_id">Merk Mobil: </label>
-            <select id="car_brand_id" name="car_brand_id" required>
-                <option value="1">Toyota</option>
-                <option value="2">Honda</option>
-                <option value="3">Nissan</option>
-                <option value="4">Suzuki</option>
-                <option value="5">Ford</option>
-                <option value="6">Daihatsu</option>
-            </select>
+            <label for="NOPOL">Nomor Polisi: </label>
+            <input type="text" name="NOPOL" id="NOPOL" autofocus required>
         </li>
         <li>
-            <label for="nama_mobil">Nama Mobil: </label>
-            <input type="text" name="nama_mobil" id="nama_mobil" autofocus required>
-        </li>
-        <li>
-            <label for="jenis_mobil">Jenis Mobil: </label>
-            <select id="jenis_mobil" name="jenis_mobil" required>
+            <label for="JENIS_MOBIL">Jenis Mobil: </label>
+            <select id="JENIS_MOBIL" name="JENIS_MOBIL" required>
                 <option value="MPV">MPV</option>
                 <option value="SUV">SUV</option>
                 <option value="Hatchback">Hatchback</option>
@@ -28,26 +17,33 @@
             </select>
         </li>
         <li>
-            <label for="tipe_transmisi">Tipe Transmisi: </label>
-            <select id="tipe_transmisi" name="tipe_transmisi" required>
-                <option value="Manual">Manual</option>
-                <option value="Matic">Matic</option>
+            <label for="MERK">Merk Mobil: </label>
+            <select id="MERK" name="MERK" required>
+                <option value="Toyota">Toyota</option>
+                <option value="Honda">Honda</option>
+                <option value="Nissan">Nissan</option>
+                <option value="Suzuki">Suzuki</option>
+                <option value="Daihatsu">Daihatsu</option>
             </select>
         </li>
         <li>
-            <label for="harga_sewa">Harga Sewa: </label>
-            <input type="number" name="harga_sewa" id="harga_sewa" required>
+            <label for="TAHUN">Tahun Keluar: </label>
+            <input type="number" name="TAHUN" id="TAHUN" required>
         </li>
         <li>
-            <label for="status_mobil">Status Mobil: </label>
-            <select id="status_mobil" name="status_mobil" required>
+            <label for="KAPASITAS_PENUMPANG">Kapasitas Penumpang: </label>
+            <input type="number" name="KAPASITAS_PENUMPANG" id="KAPASITAS_PENUMPANG" required>
+        </li>
+        <li>
+            <label for="STATUS_MOBIL">Status Mobil: </label>
+            <select id="STATUS_MOBIL" name="STATUS_MOBIL" required>
                 <option value="1">Mobil Tersedia</option>
                 <option value="0">Mobil Tidak Tersedia</option>
             </select>
         </li>
         <li>
-            <label for="foto_mobil">Foto Mobil: </label>
-            <input type="file" name="foto_mobil" id="foto_mobil" required>
+            <label for="FOTO_MOBIL">Foto Mobil: </label>
+            <input type="file" name="FOTO_MOBIL" id="FOTO_MOBIL" required>
         </li>
         <li>
             <button type="submit" name="store">Buat List Mobil</button>
