@@ -2,7 +2,7 @@
 
 class Driver_model
 {
-    private $table_name = 'drivers';
+    private $table_name = 'supir';
     private $db;
 
     public function __construct()
