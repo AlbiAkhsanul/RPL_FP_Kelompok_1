@@ -27,3 +27,5 @@
         </li>
     </ul>
 </form>
+
+<a href="<?= BASEURL ?>/public/">home</a>
