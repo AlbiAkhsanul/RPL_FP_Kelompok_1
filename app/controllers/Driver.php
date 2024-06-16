@@ -136,26 +136,4 @@ class Driver extends Controller
             exit;
         }
     }
-
-    public function changeStatus($id)
-    {
-        if (!isset($_SESSION["login"])) {
-            header("Location: " . BASEURL . "/auth/login");
-            exit;
-        }
-        if ($_SESSION["is_admin"] !== 1) {
-            header("Location: " . BASEURL . "/home");
-            exit;
-        }
-        $status = $_POST['driver_status'];
-        if ($this->model('Driver_model')->changeDriverStatusById($status, $id) > 0) {
-            FlashMsg::setFlash('Succesfully', 'Deleted', 'success');
-            header('Location: ' . BASEURL . '/admin/drivers');
-            exit;
-        } else {
-            FlashMsg::setFlash('Unsuccesfully', 'Deleted', 'danger');
-            header('Location: ' . BASEURL . '/admin/drivers');
-            exit;
-        }
-    }
 }
