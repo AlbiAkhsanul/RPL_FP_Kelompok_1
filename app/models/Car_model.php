@@ -16,19 +16,13 @@ class Car_model
         return $this->db->resultSet();
     }
 
-    public function getAllActiveCars()
-    {
-        $this->db->query("SELECT * FROM {$this->table_name} WHERE STATUS_MOBIL = 1");
-        return $this->db->resultSet();
-    }
-
     public function createNewCar($data, $dataImg)
     {
         // $currentTime = date('Y-m-d H:i');
         $currentTime = date('Y-m-d');
         $carImg = $this->uploadCarImg($dataImg, $currentTime);
-        $query = "INSERT INTO {$this->table_name} (JENIS_MOBIL,NOPOL,MERK,TAHUN,KAPASITAS_PENUMPANG,FOTO_MOBIL,STATUS_MOBIL) VALUES 
-                  (:JENIS_MOBIL,:NOPOL,:MERK,:TAHUN,:KAPASITAS_PENUMPANG,:FOTO_MOBIL,:STATUS_MOBIL)";
+        $query = "INSERT INTO {$this->table_name} (JENIS_MOBIL,NOPOL,MERK,TAHUN,KAPASITAS_PENUMPANG,FOTO_MOBIL) VALUES 
+                  (:JENIS_MOBIL,:NOPOL,:MERK,:TAHUN,:KAPASITAS_PENUMPANG,:FOTO_MOBIL)";
         $this->db->query($query);
         $this->db->bind('JENIS_MOBIL', $data['JENIS_MOBIL']);
         $this->db->bind('NOPOL', $data['NOPOL']);
@@ -36,7 +30,6 @@ class Car_model
         $this->db->bind('TAHUN', $data['TAHUN']);
         $this->db->bind('KAPASITAS_PENUMPANG', $data['KAPASITAS_PENUMPANG']);
         $this->db->bind('FOTO_MOBIL', $carImg);
-        $this->db->bind('STATUS_MOBIL', $data['STATUS_MOBIL']);
 
         $this->db->execute();
         return $this->db->affectedRowCount();
@@ -118,8 +111,7 @@ class Car_model
                   MERK = :MERK,
                   TAHUN = :TAHUN,
                   KAPASITAS_PENUMPANG = :KAPASITAS_PENUMPANG,
-                  FOTO_MOBIL = :FOTO_MOBIL,
-                  STATUS_MOBIL = :STATUS_MOBIL
+                  FOTO_MOBIL = :FOTO_MOBIL
                   WHERE ID_MOBIL = :ID_MOBIL ";
         $this->db->query($query);
         $this->db->bind('JENIS_MOBIL', $data['JENIS_MOBIL']);
@@ -128,7 +120,6 @@ class Car_model
         $this->db->bind('TAHUN', $data['TAHUN']);
         $this->db->bind('KAPASITAS_PENUMPANG', $data['KAPASITAS_PENUMPANG']);
         $this->db->bind('FOTO_MOBIL', $carImg);
-        $this->db->bind('STATUS_MOBIL', $data['STATUS_MOBIL']);
         $this->db->bind('ID_MOBIL', $id);
 
         $this->db->execute();

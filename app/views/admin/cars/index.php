@@ -22,7 +22,7 @@ $cars = $data['cars'];
         <li>
             <a href="<?= BASEURL ?>/car/show/<?= $car['ID_MOBIL'] ?>">
                 <h5>
-                    >> [<?= $car['NOPOL'] ?>][<?= $car['JENIS_MOBIL'] ?>] <?= $car['MERK'] ?> (<?= $car['STATUS_MOBIL'] === 1 ? 'Available' : 'Not Available' ?>)
+                    >> [<?= $car['NOPOL'] ?>][<?= $car['JENIS_MOBIL'] ?>] <?= $car['MERK'] ?>
                 </h5>
             </a>
             <a href="<?= BASEURL ?>/car/edit/<?= $car['ID_MOBIL'] ?>">

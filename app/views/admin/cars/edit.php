@@ -37,13 +37,6 @@
             <input type="number" name="KAPASITAS_PENUMPANG" id="KAPASITAS_PENUMPANG" value="<?= $car['KAPASITAS_PENUMPANG']; ?>" required>
         </li>
         <li>
-            <label for="STATUS_MOBIL">Status Mobil: </label>
-            <select id="STATUS_MOBIL" name="STATUS_MOBIL" required>
-                <option value="1" <?= $car['STATUS_MOBIL'] == '1' ? 'selected' : '' ?>>Mobil Tersedia</option>
-                <option value="0" <?= $car['STATUS_MOBIL'] == '0' ? 'selected' : '' ?>>Mobil Tidak Tersedia</option>
-            </select>
-        </li>
-        <li>
             <label for="FOTO_MOBIL">Foto Mobil: </label>
             <input type="file" name="FOTO_MOBIL" id="FOTO_MOBIL">
             <img src="<?= BASEURL ?>/img/cars/<?= $car["FOTO_MOBIL"]; ?>" alt="FotoMobil">
