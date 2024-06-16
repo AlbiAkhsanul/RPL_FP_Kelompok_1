@@ -1,6 +1,6 @@
 <?php
 
-define('BASEURL', 'http://localhost/RPL_FP_Kelompok_1/public');
+define('BASEURL', 'http://localhost:90/RPL_FP_Kelompok_1/public');
 
 // DB
 define('DB_HOST', 'localhost');
