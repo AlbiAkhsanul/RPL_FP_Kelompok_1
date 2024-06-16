@@ -1,26 +1,104 @@
 body {
+    font-family: system-ui, sans-serif;
     height: 100vh;
     margin: 0;
-    background: linear-gradient(45deg, #adf3ff, #54e5ff, #007488, #002b33);
+    background: linear-gradient(45deg, #26deff, #00cff3, #008299, #004753);
     background-size: 400% 400%;
-    animation: gradientBackground 10s ease infinite;
+    animation: gradientBackground 4s ease infinite;
 }
 
+/* LOGIN PAGE */
 .login_con {
     background-color: #CDF5FD;
     width: fit-content;
     margin: auto;
-    padding: 50px;
+    padding: 30px 50px 35px 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
-.login_con h1 {
-    text-align: center;
+.title_login {
+    margin: auto;
+    width:  fit-content;
+    letter-spacing: 2px;
+}
+.mail_input label, .password_input label {
+    color: #383838ee;
+    font-size: smaller;
 }
 .mail_input input, .password_input input {
     display: block;
+    padding: 0px 0px 0px 0px;
+    border-top: none;
+    border-right: none;
+    border-bottom: 2px solid #89CFF3;
+    border-left: none;
+    box-sizing: border-box;
+    outline: none;
+    background-color: #CDF5FD;
+    letter-spacing: 1.25px;
+    width: 280px;
 }
-.login_con input {
-    border-radius: 50px;
+.mail_input input:focus, .password_input input:focus {
+    outline: none;
+    border-bottom: 2px solid #00A9FF;
 }
+.mail_input, .password_input {
+    margin-top: 20px;
+}
+.remember_me {
+    margin-top: 15px;
+}
+.container_remeber_me {
+    color: #303030ee;
+    grid-area: r;
+    margin-top: 20px;
+    font-size: smaller;
+    line-height: 1.1;
+    display: grid;
+    grid-template-columns: 1em auto;
+    gap: 0.5em;
+    width: fit-content;
+    justify-self: start;
+    cursor: pointer;
+}
+.container_remeber_me input {
+    cursor: pointer;
+}
+.login_submit_btn {
+    margin-top: 30px;
+    text-align: center;
+}
+.login_submit_btn button {
+    background-color: #FFFFFF;
+    letter-spacing: 1px;
+    font-weight: 400;
+    padding: 4px 28px 5px 28px;
+    border: 2px solid #89CFF3;
+}
+.login_submit_btn button:hover {
+    font-weight: 600;
+    background-color: #dff4ff;
+    border: 2px solid #00A9FF;
+}
+.rm_dan_ca a {
+    grid-area: c;
+    font-size: smaller;
+    justify-self: end;
+    margin-top: 18px;
+    text-decoration: none;
+    color: #808080ee;
+}
+.rm_dan_ca a:hover {
+    color: #444444;
+}
+.rm_dan_ca {
+    display: grid;
+    grid-template-areas: 'r c';
+}
+/* LOGIN PAGE */
 
 @keyframes gradientBackground {
     0% {

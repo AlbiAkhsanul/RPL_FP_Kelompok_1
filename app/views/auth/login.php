@@ -1,5 +1,8 @@
 <div class="login_con">
-    <h1>Login</h1>
+    <div class="title_login">
+        <h1>LOGIN</h1>
+    </div>
+
     <form action="<?= BASEURL; ?>/auth/authenticate" method="post">
         <div class="mail_input">
             <label for="EMAIL">Email </label>
@@ -11,12 +14,18 @@
             <input type="password" name="PASSWORD" id="PASSWORD" autocomplete="off" required>
         </div>
 
-        <div class="remember_me">
-            <input type="checkbox" name="remember">
-            <label for="remember">Ingat saya</label>
+        <div class="rm_dan_ca">
+            <label class="container_remeber_me">
+                <input type="checkbox" name="remember">
+                Ingat saya
+            </label>
+
+            <a href="<?= BASEURL ?>/auth/register">Belum mempunyai akun?</a>
         </div>
 
-        <button type="submit" name="login">Login</button>
+        <div class="login_submit_btn">
+            <button type="submit" name="login">Login</button>
+        </div>
     </form>
 </div>
-<a href="<?= BASEURL ?>/public/">home</a>
+<a href="<?= BASEURL ?>">home</a>
