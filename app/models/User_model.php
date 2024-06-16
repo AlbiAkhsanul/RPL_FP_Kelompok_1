@@ -68,49 +68,45 @@ class User_model
         return $this->db->single();
     }
 
-    public function editUserById($data, $id) 
+    public function editUserById($data, $id)
     {
         $userData = $this->getUserById($id);
-        if (!password_verify($data['PASSWORD_LAMA'], $userData['PASSWORD']))
-        {
+        if (!password_verify($data['PASSWORD_LAMA'], $userData['PASSWORD'])) {
             echo "
             <script>
                 alert('Password Lama tidak sesuai!');
                 window.history.go(-1);
             </script>
-            ";    
+            ";
             exit;
         }
-        if (!empty($data['PASSWORD_BARU']) && $data['PASSWORD_BARU'] !== $data['KONFIRMASI_PASSWORD_BARU']) 
-        {
+        if (!empty($data['PASSWORD_BARU']) && $data['PASSWORD_BARU'] !== $data['KONFIRMASI_PASSWORD_BARU']) {
             echo "
             <script>
                 alert('Konfirmasi Password tidak sesuai!');
                 window.history.go(-1);
             </script>
-            ";    
+            ";
             exit;
         }
-        if ($userData['EMAIL_USER'] !== $data['EMAIL_USER'])
-        {
-            if ($this->getEmail($data['EMAIL_USER']))
-            {
+        if ($userData['EMAIL_USER'] !== $data['EMAIL_USER']) {
+            if ($this->getEmail($data['EMAIL_USER'])) {
                 echo "
                 <script>
                     alert('Email Telah Dipakai, Coba Email Lain!');
                     window.history.go(-1);
                 </script>
-                ";    
+                ";
                 exit;
             }
-        }        
+        }
         $password = $data['PASSWORD_BARU'] === '' ? $userData['PASSWORD'] : password_hash($data['PASSWORD_BARU'], PASSWORD_DEFAULT);
         $query = "UPDATE {$this->table_name} SET 
-        NAMA = :NAMA, 
-        NO_TELP = :NO_TELP, 
-        EMAIL_USER = :EMAIL_USER, 
-        PASSWORD = :PASSWORD 
-        WHERE ID_USER = :ID_USER";
+                NAMA = :NAMA, 
+                NO_TELP = :NO_TELP, 
+                EMAIL_USER = :EMAIL_USER, 
+                PASSWORD = :PASSWORD 
+                WHERE ID_USER = :ID_USER";
 
         $this->db->query($query);
         $this->db->bind('NAMA', $data['NAMA']);
