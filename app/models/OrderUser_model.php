@@ -16,43 +16,46 @@ class Order_model
         return $this->db->resultSet();
     }
 
+    // public function createNewOrder($data)
+    // {
+    //     $order = $data['POST'];
+    //     $driver_id = $data['driver_id'];
+    //     $car_id = $data['POST']['car_id'];
+
+    //     $this->changeCarStatus($car_id, 0);
+
+    //     if ($driver_id != 0) {
+    //         $this->changeDriverStatus($driver_id, 0);
+    //     }
+
+    //     $currentTime = date('Y-m-d H:i');
+
+    //     $query = "INSERT INTO {$this->table_name} (method_id,driver_id,car_id,user_id,tanggal_order,jenis_sewa,tanggal_sewa,durasi_sewa,tanggal_transaksi,status_order,total_harga) VALUES 
+    //               (:method_id,:driver_id,:car_id,:user_id,:tanggal_order,:jenis_sewa,:tanggal_sewa,:durasi_sewa,:tanggal_transaksi,:status_order,:total_harga)";
+    //     $this->db->query($query);
+    //     $this->db->bind('method_id', $order['method_id']);
+    //     $this->db->bind('driver_id', $driver_id);
+    //     $this->db->bind('car_id', $order['car_id']);
+    //     $this->db->bind('user_id', $_SESSION['user_id']);
+    //     $this->db->bind('tanggal_order', $currentTime);
+    //     $this->db->bind('jenis_sewa', $order['jenis_sewa']);
+    //     $this->db->bind('tanggal_sewa', $order['tanggal_sewa']);
+    //     $this->db->bind('durasi_sewa', $order['durasi_sewa']);
+    //     $this->db->bind('tanggal_transaksi', $currentTime);
+    //     $this->db->bind('status_order', "Pending");
+    //     $this->db->bind('total_harga', $order['total_harga']);
+
+    //     $this->db->execute();
+    //     return $this->db->affectedRowCount();
+    // }
+
     public function createNewOrder($data)
     {
-        $order = $data['POST'];
-        $driver_id = $data['driver_id'];
-        $car_id = $data['POST']['car_id'];
-
-        $this->changeCarStatus($car_id, 0);
-
-        if ($driver_id != 0) {
-            $this->changeDriverStatus($driver_id, 0);
-        }
-
-        $currentTime = date('Y-m-d H:i');
-
-        $query = "INSERT INTO {$this->table_name} (method_id,driver_id,car_id,user_id,tanggal_order,jenis_sewa,tanggal_sewa,durasi_sewa,tanggal_transaksi,status_order,total_harga) VALUES 
-                  (:method_id,:driver_id,:car_id,:user_id,:tanggal_order,:jenis_sewa,:tanggal_sewa,:durasi_sewa,:tanggal_transaksi,:status_order,:total_harga)";
-        $this->db->query($query);
-        $this->db->bind('method_id', $order['method_id']);
-        $this->db->bind('driver_id', $driver_id);
-        $this->db->bind('car_id', $order['car_id']);
-        $this->db->bind('user_id', $_SESSION['user_id']);
-        $this->db->bind('tanggal_order', $currentTime);
-        $this->db->bind('jenis_sewa', $order['jenis_sewa']);
-        $this->db->bind('tanggal_sewa', $order['tanggal_sewa']);
-        $this->db->bind('durasi_sewa', $order['durasi_sewa']);
-        $this->db->bind('tanggal_transaksi', $currentTime);
-        $this->db->bind('status_order', "Pending");
-        $this->db->bind('total_harga', $order['total_harga']);
-
-        $this->db->execute();
-        return $this->db->affectedRowCount();
     }
 
     public function getOrderById($id)
     {
         $this->db->query("SELECT * FROM {$this->table_name} WHERE order_id=:order_id");
-        // untuk menghindari sql injection
         $this->db->bind('order_id', $id);
         return $this->db->single();
     }
