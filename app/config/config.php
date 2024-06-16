@@ -8,5 +8,3 @@ define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_NAME', 'travelku');
 define(' PASSWORD_DEFAULT', 'password123');
-
-// Test GitIgnore4
