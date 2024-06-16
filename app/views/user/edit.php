@@ -1,3 +1,4 @@
+<a href="<?= BASEURL . "/user/details/" . $data['user']['ID_USER'] ?>">Kembali</a>
 <form action="<?= BASEURL . "/user/update/" . $data['user']['ID_USER'] ?>" method="post">
     <label for="NAMA">Nama:</label>
     <input type="text" name="NAMA" value="<?= $data['user']['NAMA'] ?>" id=""><br>
