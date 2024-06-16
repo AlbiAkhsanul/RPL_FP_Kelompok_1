@@ -1,15 +1,15 @@
-<div class="login_con">
-    <div class="title_login">
+<div class="auth_con">
+    <div class="auth_title">
         <h1>LOGIN</h1>
     </div>
 
     <form action="<?= BASEURL; ?>/auth/authenticate" method="post">
-        <div class="mail_input">
+        <div class="basic_auth_field">
             <label for="EMAIL">Email </label>
             <input type="text" name="EMAIL" id="EMAIL" autofocus required>
         </div>
 
-        <div class="password_input">
+        <div class="basic_auth_field">
             <label for="PASSWORD">Password </label>
             <input type="password" name="PASSWORD" id="PASSWORD" autocomplete="off" required>
         </div>
@@ -23,7 +23,7 @@
             <a href="<?= BASEURL ?>/auth/register">Belum mempunyai akun?</a>
         </div>
 
-        <div class="login_submit_btn">
+        <div class="submit_btn">
             <button type="submit" name="login">Login</button>
         </div>
     </form>
