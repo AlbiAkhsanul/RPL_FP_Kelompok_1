@@ -91,8 +91,6 @@ class User_model
             ";    
             exit;
         }
-        // var_dump($this->getEmail($data['EMAIL_USER']));
-        // exit;
         if ($userData['EMAIL_USER'] !== $data['EMAIL_USER'])
         {
             if ($this->getEmail($data['EMAIL_USER']))
