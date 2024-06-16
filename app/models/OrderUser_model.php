@@ -1,6 +1,6 @@
 <?php
 
-class Order_model
+class OrderUser_model
 {
     private $table_name = 'pesanan_user';
     private $db;
