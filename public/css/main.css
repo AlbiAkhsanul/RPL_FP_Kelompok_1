@@ -1,0 +1,35 @@
+body {
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(45deg, #adf3ff, #54e5ff, #007488, #002b33);
+    background-size: 400% 400%;
+    animation: gradientBackground 10s ease infinite;
+}
+
+.login_con {
+    background-color: #CDF5FD;
+    width: fit-content;
+    margin: auto;
+    padding: 50px;
+}
+.login_con h1 {
+    text-align: center;
+}
+.mail_input input, .password_input input {
+    display: block;
+}
+.login_con input {
+    border-radius: 50px;
+}
+
+@keyframes gradientBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
