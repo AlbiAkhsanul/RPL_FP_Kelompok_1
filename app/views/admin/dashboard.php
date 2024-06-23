@@ -1,26 +1,20 @@
-<?php
-$cars = $data['cars'];
-$orders = $data['orders'];
-$drivers = $data['drivers'];
-?>
-<h1>
-    Ini Halaman Dashboard Admin
-</h1>
-
-<ul>
-    <a href="<?= BASEURL ?>/orderrute/index">
-        <h3>
-            Orders
-        </h3>
-    </a>
-    <a href="<?= BASEURL ?>/admin/drivers/index">
-        <h3>
-            Drivers
-        </h3>
-    </a>
-    <a href="<?= BASEURL ?>/admin/cars/index">
-        <h3>
-            Cars
-        </h3>
-    </a>
-</ul>
+<div class="container mt-5">
+        <h1 class="mb-4">Dashboard</h1>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <a href="<?= BASEURL ?>/admin/orderRute" class="btn btn-primary btn-block">
+                    Orders
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="<?= BASEURL ?>/admin/drivers/index" class="btn btn-primary btn-block">
+                    Drivers
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="<?= BASEURL ?>/admin/cars/index" class="btn btn-primary btn-block">
+                    Cars
+                </a>
+            </li>
+        </ul>
+    </div>

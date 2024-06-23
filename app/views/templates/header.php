@@ -20,13 +20,13 @@
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="<?= BASEURL ?>">Home</a>
+              <a class="nav-link active" aria-current="page" href="<?= BASEURL ?>/home">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="<?= BASEURL ?>">Travels</a>
+              <a class="nav-link active" aria-current="page" href="<?= BASEURL ?>/orderRute/index">Travels</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="<?= BASEURL ?>">My Orders</a>
+              <a class="nav-link active" aria-current="page" href="<?= BASEURL ?>/order/index">My Orders</a>
             </li>
           </ul>
           <div class="btn-group">
@@ -34,7 +34,13 @@
               <?= $_SESSION['nama'] ?>
             </button>
             <ul class="dropdown-menu dropdown-menu-end shadow-sm">
-              <li><a class="dropdown-item text-primary" href="">Edit Profile</a></li>
+              <?php if (($_SESSION['is_admin'] == 1)) : ?>
+                <li>
+                  <div class="text-center py-3">
+                    <a class="dropdown-item text-dark" href="<?= BASEURL ?>/admin/dashboard" role="button">Dashboard Admin</a>
+                  </div>
+                </li>
+              <?php endif; ?>
               <li><a class="dropdown-item text-danger" href="<?= BASEURL ?>/auth/logout">Logout</a></li>
             </ul>
           </div>

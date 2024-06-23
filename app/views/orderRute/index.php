@@ -1,29 +1,39 @@
-<?php 
-$ruteMap = [];
-foreach ($data['rute'] as $rute) {
-    $ruteMap[$rute['ID_RUTE']] = $rute;
-}
-
-$supirMap = [];
-foreach ($data['supir'] as $supir) {
-    $supirMap[$supir['ID_SUPIR']] = $supir;
-}
-
-$mobilMap = [];
-foreach ($data['mobil'] as $mobil) {
-    $mobilMap[$mobil['ID_MOBIL']] = $mobil;
-}
-
-// Menampilkan data
-foreach ($data['orderRute'] as $orderRute) {
-    ?>
-    <p><?= $ruteMap[$orderRute['ID_RUTE']]['NAMA_RUTE'] ?? 'Rute tidak ditemukan' ?></p>
-    <p><?= $supirMap[$orderRute['ID_SUPIR']]['NAMA'] ?? 'Supir tidak ditemukan' ?></p>
-    <p><?= $mobilMap[$orderRute['ID_MOBIL']]['NOPOL'] ?? 'Mobil tidak ditemukan' ?></p>
-    <p><?= $orderRute['TANGGAL_PESANAN_RUTE'] ?></p>
-    <p><?= $orderRute['TANGGAL_PERJALANAN'] ?></p>
-    <p><?= $orderRute['JUMLAH_PENUMPANG'] ?></p>
-    <p><?= $orderRute['STATUS_PESANAN_RUTE'] ?></p>
-    <?php 
-}
+<?php
+$orders = $data['orderRute'];
+$routes = $data['rute'];
 ?>
+
+<div class="table-responsive orderrouteindex">
+    <h3>List Order Rute</h3>
+
+    <table class="table table-striped table-bordered shadow-sm">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Rute Perjalanan</th>
+                <th>Tanggal Perjalanan</th>
+                <th>Jumlah Penumpang</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($orders as $order) : ?>
+                <tr>
+                    <td><?= $order['ID_PESANAN_RUTE'] ?></td>
+                    <td>
+                        <?php foreach ($routes as $route) : ?>
+                            <?php if ($order['ID_RUTE'] === $route['ID_RUTE']) : ?>
+                                <?= $route['NAMA_RUTE'] ?>
+                            <?php endif ?>
+                        <?php endforeach; ?>
+                    </td>
+                    <td><?= $order['TANGGAL_PERJALANAN'] ?></td>
+                    <td><?= $order['JUMLAH_PENUMPANG'] ?></td>
+                    <td>
+                        <a href="<?= BASEURL ?>/orderRute/show/<?= $order['ID_PESANAN_RUTE'] ?>" class="btn btn-dark btn-sm">View</a>
+                        <a href="<?= BASEURL ?>/order/create/<?= $order['ID_PESANAN_RUTE'] ?>" class="btn btn-success btn-sm">Buat Pesanan</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
