@@ -33,7 +33,9 @@ $routes = $data['rute'];
                     <td><?= $order['STATUS_PESANAN_USER'] ?></td>
                     <td>
                         <a href="<?= BASEURL ?>/orderRute/show/<?= $order['ID_PESANAN_RUTE'] ?>" class="btn btn-dark btn-sm">View</a>
-                        <a href="<?= BASEURL ?>/orderRute/close/<?= $order['ID_PESANAN_RUTE'] ?>" class="btn btn-dark btn-sm">Close Order</a>
+                        <?php if ($_SESSION['is_admin'] == 1) : ?>
+                            <a href="<?= BASEURL ?>/orderRute/close/<?= $order['ID_PESANAN_RUTE'] ?>" class="btn btn-dark btn-sm">Close Order</a>
+                        <?php endif ?>
                     </td>
                 </tr>
             <?php endforeach; ?>
