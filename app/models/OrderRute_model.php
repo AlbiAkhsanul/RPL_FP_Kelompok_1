@@ -72,7 +72,7 @@ class OrderRute_model
     {
         $query = "UPDATE {$this->table_name} SET 
                   STATUS_PESANAN_RUTE = :STATUS_PESANAN_RUTE 
-                  WHERE order_id = :order_id ";
+                  WHERE ID_PESANAN_RUTE = :ID_PESANAN_RUTE ";
         $this->db->query($query);
         $this->db->bind('STATUS_PESANAN_RUTE', "Closed");
         $this->db->bind('ID_PESANAN_RUTE', $id);

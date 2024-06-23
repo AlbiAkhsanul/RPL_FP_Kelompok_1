@@ -10,7 +10,7 @@ class OrderUser_model
         $this->db = new Database;
     }
 
-    public function getAllOrders()
+    public function getAllOrderUser()
     {
         $this->db->query("SELECT * FROM {$this->table_name}");
         return $this->db->resultSet();
@@ -20,7 +20,7 @@ class OrderUser_model
     {
         $currentTime = date('Y-m-d H:i');
 
-        $query = "INSERT INTO {$this->table_name} (ID_PESANAN_RUTE,ID_METODE,ID_RUTE,ID_USER,TANGGAL_PESANAN_USER,TANGGAL_PERJALANAN,TANGGAL_TRANSAKSI,TOTAL_HARGA,STATUS_TRANSAKSI,ALAMAT_PENJEMPUTAN,ALAMAT_PENURUNAN,STATUS_PESANAN_USER) VALUES (:ID_PESANAN_RUTE,:ID_METODE,:ID_RUTE,:ID_USER,:TANGGAL_PESANAN_USER,:TANGGAL_PERJALANAN,:TANGGAL_TRANSAKSI,:TOTAL_HARGA,:STATUS_TRANSAKSI,:ALAMAT_PENJEMPUTAN,:ALAMAT_PENURUNAN,:STATUS_PESANAN_USER)";
+        $query = "INSERT INTO {$this->table_name} (ID_PESANAN_RUTE,ID_METODE,ID_RUTE,ID_USER,TANGGAL_PESANAN_USER,TANGGAL_PERJALANAN,TOTAL_HARGA,ALAMAT_PENJEMPUTAN,ALAMAT_PENURUNAN,STATUS_PESANAN_USER) VALUES (:ID_PESANAN_RUTE,:ID_METODE,:ID_RUTE,:ID_USER,:TANGGAL_PESANAN_USER,:TANGGAL_PERJALANAN,:TOTAL_HARGA,:ALAMAT_PENJEMPUTAN,:ALAMAT_PENURUNAN,:STATUS_PESANAN_USER)";
         $this->db->query($query);
         $this->db->bind('ID_PESANAN_RUTE', $data['ID_PESANAN_RUTE']);
         $this->db->bind('ID_METODE', $data['ID_METODE']);
@@ -28,12 +28,10 @@ class OrderUser_model
         $this->db->bind('ID_USER', $data['ID_USER']);
         $this->db->bind('TANGGAL_PESANAN_USER',  $currentTime);
         $this->db->bind('TANGGAL_PERJALANAN', $data['TANGGAL_PERJALANAN']);
-        $this->db->bind('TANGGAL_TRANSAKSI', $currentTime);
         $this->db->bind('TOTAL_HARGA', $data['TOTAL_HARGA']);
-        $this->db->bind('STATUS_TRANSAKSI', $data['STATUS_TRANSAKSI']);
         $this->db->bind('ALAMAT_PENJEMPUTAN', $data['ALAMAT_PENJEMPUTAN']);
         $this->db->bind('ALAMAT_PENURUNAN', $data['ALAMAT_PENURUNAN']);
-        $this->db->bind('STATUS_PESANAN_USER', $data['STATUS_PESANAN_USER']);
+        $this->db->bind('STATUS_PESANAN_USER', "Pending");
 
         $this->db->execute();
         return $this->db->affectedRowCount();
@@ -74,5 +72,19 @@ class OrderUser_model
         $this->db->bind('STATUS_PESANAN_USER', $status);
         $this->db->bind('ID_PESANAN_USER', $id);
         $this->db->execute();
+    }
+
+    public function closeOrderUser($id)
+    {
+        $query = "UPDATE {$this->table_name} SET 
+                  STATUS_PESANAN_USER = :STATUS_PESANAN_USER 
+                  WHERE ID_PESANAN_USER = :ID_PESANAN_USER ";
+        $this->db->query($query);
+        $this->db->bind('STATUS_PESANAN_USER', "Closed");
+        $this->db->bind('ID_PESANAN_USER', $id);
+
+        $this->db->execute();
+
+        return $this->db->affectedRowCount();
     }
 }

@@ -9,7 +9,7 @@ class Order extends Controller
             exit;
         }
         $data['title'] = 'Order List';
-        $data['orders'] = $this->model('Order_model')->getAllOrders();
+        $data['orders'] = $this->model('OrderUser_model')->getAllOrderUser();
         $this->view('templates/header', $data);
         $this->view('order/index', $data);
         $this->view('templates/footer');
@@ -21,28 +21,16 @@ class Order extends Controller
             header("Location: " . BASEURL . "/auth/login");
             exit;
         }
-        $data['is_driver'] = 0;
-        if ($this->model('Driver_model')->getAllActiveDrivers()) {
-            $data['is_driver'] = 1;
-        }
+
         $data['title'] = 'Create Order';
-        $data['order_rute'] = $this->model('OrderRute_model')->gerOrderRuteById($id);
+        $data['order_rute'] = $this->model('OrderRute_model')->getOrderRuteById($id);
+        $rute_id = $data['order_rute']['ID_PESANAN_RUTE'];
+        $car_id = $data['order_rute']['ID_MOBIL'];
+        $data['rute'] = $this->model('Rute_model')->getRuteById($rute_id);
+        $data['mobil'] = $this->model('Car_model')->getCarById($car_id);
+        $data['transaksi'] = $this->model('Method_model')->getAllTransaksi();
         $this->view('templates/header', $data);
         $this->view('order/create', $data);
-        $this->view('templates/footer');
-    }
-
-    public function confirm()
-    {
-        if (!isset($_SESSION["login"])) {
-            header("Location: " . BASEURL . "/auth/login");
-            exit;
-        }
-        $data['title'] = 'Confirm Order';
-        $data = $this->model('Order_model')->calculateTotalHarga($_POST);
-        var_dump($data);
-        $this->view('templates/header', $data);
-        $this->view('order/confirmation', $data);
         $this->view('templates/footer');
     }
 
@@ -56,14 +44,7 @@ class Order extends Controller
             header('Location: ' . BASEURL . '/order/create/' . $id);
             exit;
         }
-        $data['POST'] = $_POST;
-        if ($data['POST']['jenis_sewa'] != 0) {
-            $row = $this->model('Driver_model')->getAllActiveDrivers($_POST);
-            $data['driver_id'] = $row[0]['driver_id'];
-        } else {
-            $data['driver_id'] = 0;
-        }
-        if ($this->model('Order_model')->createNewOrder($data) > 0) {
+        if ($this->model('OrderUser_model')->createNewOrderUser($_POST) > 0) {
             FlashMsg::setFlash('Succesfully', 'Created', 'success');
             header('Location: ' . BASEURL . '/order');
             exit;
