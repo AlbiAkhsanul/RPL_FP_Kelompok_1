@@ -2,12 +2,10 @@
 $orders = $data['orderRute']
 ?>
 
-<h1>
-    Ini Halaman List Order Rute
-</h1>
+<div class="table-responsive orderrouteindex">
+    <h3>List Order Rute Page</h3>
 
-<div class="table-responsive">
-    <table class="table table-striped table-bordered">
+    <table class="table table-striped table-bordered shadow-sm">
         <thead>
             <tr>
                 <th>Order ID</th>
