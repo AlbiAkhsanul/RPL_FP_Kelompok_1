@@ -45,7 +45,8 @@ body {
 }
 .auth_con form {
     padding: 30px 50px 35px 50px;
-    background-color: #CDF5FD;
+    background-color: #d8d8d8;
+    border-radius: 10px;
 }
 .auth_title {
     margin: auto;
@@ -65,7 +66,7 @@ body {
     border-left: none;
     box-sizing: border-box;
     outline: none;
-    background-color: #CDF5FD;
+    background-color: #d8d8d8;
     letter-spacing: 1.25px;
     width: 280px;
 }
@@ -105,6 +106,7 @@ body {
     font-weight: 400;
     padding: 4px 28px 5px 28px;
     border: 2px solid #89CFF3;
+    border-radius: 8px;
 }
 .submit_btn button:hover {
     font-weight: 600;

@@ -9,9 +9,9 @@
                 <h3 class="fw-light text-light">Website pelayanan travel murah dari Indonesia.</h3>
             <?php else: ?>
                 <h1 class="display-4 fw-bold">Selamat Datang</h1>
-                <h3 class="fw-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit suscipit esse ab ea ut et? Tempore sed dolores nobis quidem. Explicabo ducimus fugiat, laudantium quam quisquam ipsam minus quod nulla.</h3>
+                <h3 class="fw-light">Selamat datang di Aplikasi Travel, solusi lengkap untuk semua kebutuhan perjalanan Anda! Kami hadir untuk memudahkan Anda dalam merencanakan, memesan, dan menikmati setiap momen perjalanan dengan berbagai fitur unggulan yang kami tawarkan.</h3>
                 <?php if (($_SESSION['is_admin'] == 1)) : ?>
-                    <a href="<?= BASEURL ?>/admin/dashboard">Dashboard</a>
+                    <a class="btn btn-primary" href="<?= BASEURL ?>/admin/dashboard" role="button">Dashboard Admin</a>
                 <?php endif; ?>
             <?php endif; ?>
         </div>
