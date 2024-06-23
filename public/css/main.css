@@ -2,12 +2,13 @@ body {
     font-family: system-ui, sans-serif;
     height: 100vh;
     margin: 0;
-    background: linear-gradient(45deg, #26deff, #00cff3, #008299, #004753);
-    background-size: 400% 400%;
-    animation: gradientBackground 4s ease infinite;
+    background-color: #00A9FF;
+    /* background: linear-gradient(45deg, #26deff, #00cff3, #008299, #004753); */
+    /* background-size: 400% 400%;
+    animation: gradientBackground 4s ease infinite; */
 }
 
-/* LOGIN PAGE */
+/* LOGIN REGISTER PAGE */
 .auth_con {
     background-color: #CDF5FD;
     width: fit-content;
@@ -107,9 +108,9 @@ body {
     display: grid;
     grid-template-areas: 'r c';
 }
-/* LOGIN PAGE */
+/* LOGIN REGISTER PAGE */
 
-@keyframes gradientBackground {
+/* @keyframes gradientBackground {
     0% {
         background-position: 0% 50%;
     }
@@ -119,4 +120,4 @@ body {
     100% {
         background-position: 0% 50%;
     }
-}
+} */
