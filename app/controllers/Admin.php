@@ -14,10 +14,9 @@ class Admin extends Controller
         }
 
         $data['title'] = "Admin Page";
-        $data['orders'] = $this->model('Order_model')->getAllOrders();
+        // $data['orders'] = $this->model('Order_model')->getAllOrders();
         $data['cars'] = $this->model('Car_model')->getAllCars();
         $data['drivers'] = $this->model('Driver_model')->getAllDrivers();
-        $data['penalties'] = $this->model('Penalty_model')->getAllPenalties();
         $this->view('templates/header', $data);
         $this->view('admin/dashboard', $data);
         $this->view('templates/footer');
