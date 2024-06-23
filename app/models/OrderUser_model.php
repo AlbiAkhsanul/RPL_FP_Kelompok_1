@@ -16,7 +16,7 @@ class OrderUser_model
         return $this->db->resultSet();
     }
 
-    public function createNewOrder($data)
+    public function createNewOrderUser($data)
     {
         $currentTime = date('Y-m-d H:i');
 
@@ -39,7 +39,7 @@ class OrderUser_model
         return $this->db->affectedRowCount();
     }
 
-    public function getOrderById($id)
+    public function getOrderUseryId($id)
     {
         $this->db->query("SELECT * FROM {$this->table_name} WHERE ID_PESANAN_USER=:ID_PESANAN_USER");
         $this->db->bind('ID_PESANAN_USER', $id);
@@ -65,7 +65,7 @@ class OrderUser_model
     //     return $this->db->affectedRowCount();
     // }
 
-    public function changeOrderStatus($id, $status)
+    public function changeOrderUserStatus($id, $status)
     {
         $query = "UPDATE {$this->table_name} SET 
                   STATUS_PESANAN_USER = :STATUS_PESANAN_USER 
