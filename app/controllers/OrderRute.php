@@ -11,6 +11,21 @@ class OrderRute extends Controller
 
         $data['title'] = 'List Pesanan Rute';
         $data['orderRute'] = $this->model('OrderRute_model')->getAllOrders();
+        $data['rute'] = $this->model('Rute_model')->getAllRute();
+        $this->view('templates/header', $data);
+        $this->view('orderRute/index', $data);
+        $this->view('templates/footer');
+    }
+
+    public function admin()
+    {
+        if (!isset($_SESSION["login"])) {
+            header("Location: " . BASEURL . "/auth/login");
+            exit;
+        }
+
+        $data['title'] = 'List Pesanan Rute';
+        $data['orderRute'] = $this->model('OrderRute_model')->getAllOrders();
         $this->view('templates/header', $data);
         $this->view('admin/ordersRute/index', $data);
         $this->view('templates/footer');
