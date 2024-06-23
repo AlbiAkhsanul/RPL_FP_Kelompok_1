@@ -16,6 +16,16 @@ body {
 }
 /* HOME */
 
+/*  */
+.orderrouteindex {
+    width: 80vw;
+    margin: 50px auto 50px auto;
+}
+
+.orderrouteindex table {
+    margin-top: 20px;
+}
+/*  */
 /* WHEN USER NOT LOGIN YET */
 
 .nologin {
