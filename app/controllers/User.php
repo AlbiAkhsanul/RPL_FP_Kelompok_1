@@ -8,13 +8,13 @@ class User extends Controller
         $this->db = new Database;
     }
 
-    public function details($id)
+    public function index()
     {
         if (!isset($_SESSION["login"])) {
             header("Location: " . BASEURL . "/auth/login");
             exit;
         }
-        $data['user'] = $this->model('User_model')->getUserById($id);
+        $data['user'] = $this->model('User_model')->getUserById($_SESSION['user_id']);
         $data['title'] = "Lihat Profil";
         $this->view('templates/header', $data);
         $this->view('user/details', $data);
@@ -25,6 +25,10 @@ class User extends Controller
     {
         if (!isset($_SESSION["login"])) {
             header("Location: " . BASEURL . "/auth/login");
+            exit;
+        }
+        if ($_SESSION["user_id"] !== $id) {
+            header("Location: " . BASEURL . "/user");
             exit;
         }
         $data['user'] = $this->model('User_model')->getUserById($id);
