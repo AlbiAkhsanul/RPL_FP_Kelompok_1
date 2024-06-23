@@ -27,7 +27,7 @@ class OrderRute extends Controller
         $data['title'] = 'List Pesanan Rute';
         $data['orderRute'] = $this->model('OrderRute_model')->getAllOrders();
         $this->view('templates/header', $data);
-        $this->view('admin/ordersRute/confirm', $data);
+        $this->view('admin/ordersRute/index', $data);
         $this->view('templates/footer');
     }
 
@@ -84,11 +84,11 @@ class OrderRute extends Controller
         $_POST['JUMLAH_PENUMPANG'] = $car['KAPASITAS_PENUMPANG'];
         if ($this->model('OrderRute_model')->createNewOrderRute($_POST) > 0) {
             FlashMsg::setFlash('Succesfully', 'Created', 'success');
-            header('Location: ' . BASEURL . '/orderRute/index');
+            header('Location: ' . BASEURL . '/orderRute/admin');
             exit;
         } else {
             FlashMsg::setFlash('Unsuccesfully', 'Created', 'danger');
-            header('Location: ' . BASEURL . '/orderRute/index');
+            header('Location: ' . BASEURL . '/orderRute/admin');
             exit;
         }
     }

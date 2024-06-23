@@ -31,6 +31,5 @@ $orders = $data['orderRute']
                 <?php endforeach; ?>
             </tbody>
         </table>
-        <a href="<?= BASEURL ?>/orderRute/create" class="btn btn-success btn-sm">Buat Order Rute</a>
     </div>
 </div>
