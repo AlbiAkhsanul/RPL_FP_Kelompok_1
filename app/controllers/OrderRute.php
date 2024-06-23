@@ -2,7 +2,7 @@
 
 class OrderRute extends Controller
 {
-    public function create()
+    public function rute()
     {
         if (!isset($_SESSION["login"])) {
             header("Location: " . BASEURL . "/auth/login");
@@ -13,12 +13,29 @@ class OrderRute extends Controller
             exit;
         }
         $data['rute'] = $this->model('Rute_model')->getAllRute();
+        $data['title'] = 'Tambah Pesanan Rute';
+        $this->view('templates/header', $data);
+        $this->view('admin/ordersRute/rute', $data);
+        $this->view('templates/footer');
+    }
+
+    public function mobil()
+    {
+        if (!isset($_SESSION["login"])) {
+            header("Location: " . BASEURL . "/auth/login");
+            exit;
+        }
+        if ($_SESSION['is_admin'] !== 1) {
+            header('Location: ' . BASEURL . '/home');
+            exit;
+        }
         $data['supir'] = $this->model('Driver_model')->getAllDrivers();
         $data['mobil'] = $this->model('Car_model')->getAllCars();
         $data['title'] = 'Tambah Pesanan Rute';
         $this->view('templates/header', $data);
-        $this->view('admin/ordersRute/create', $data);
+        $this->view('admin/ordersRute/mobil', $data);
         $this->view('templates/footer');
+
     }
 
     public function store()
