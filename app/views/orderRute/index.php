@@ -10,8 +10,8 @@ $routes = $data['rute'];
         <thead>
             <tr>
                 <th>Order ID</th>
-                <th>Tanggal Perjalananr</th>
                 <th>Rute Perjalanan</th>
+                <th>Tanggal Perjalanan</th>
                 <th>Jumlah Penumpang</th>
                 <th>Actions</th>
             </tr>
