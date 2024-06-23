@@ -8,10 +8,11 @@ class OrderRute extends Controller
             header("Location: " . BASEURL . "/auth/login");
             exit;
         }
+
         $data['title'] = 'List Pesanan Rute';
         $data['orderRute'] = $this->model('OrderRute_model')->getAllOrders();
         $this->view('templates/header', $data);
-        $this->view('orderRute/index', $data);
+        $this->view('admin/ordersRute/index', $data);
         $this->view('templates/footer');
     }
 

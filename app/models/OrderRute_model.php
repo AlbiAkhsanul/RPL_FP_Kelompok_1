@@ -40,7 +40,7 @@ class OrderRute_model
         $this->db->bind("TANGGAL_PERJALANAN", $data['TANGGAL_PERJALANAN']);
         $this->db->bind("JUMLAH_PENUMPANG", $data['JUMLAH_PENUMPANG']);
         $this->db->bind("TOTAL_HARGA", $data['TOTAL_HARGA']);
-        $this->db->bind("STATUS_PESANAN_RUTE", "1");
+        $this->db->bind("STATUS_PESANAN_RUTE", "Pending");
         $this->db->execute();
 
         return $this->db->affectedRowCount();
