@@ -1,13 +1,7 @@
 <?php
 
-class User extends Controller 
+class User extends Controller
 {
-    private $db;
-    public function __construct()
-    {
-        $this->db = new Database;
-    }
-
     public function details($id)
     {
         if (!isset($_SESSION["login"])) {
@@ -21,7 +15,7 @@ class User extends Controller
         $this->view('templates/footer');
     }
 
-    public function edit($id) 
+    public function edit($id)
     {
         if (!isset($_SESSION["login"])) {
             header("Location: " . BASEURL . "/auth/login");
@@ -34,10 +28,9 @@ class User extends Controller
         $this->view('templates/footer');
     }
 
-    public function update($id) 
+    public function update($id)
     {
-        if($this->model('User_model')->editUserById($_POST, $id) > 0)
-        {
+        if ($this->model('User_model')->editUserById($_POST, $id) > 0) {
             FlashMsg::setFlash('Succesfully', 'Updated', 'success');
             header('Location: ' . BASEURL . '/home');
             exit;
@@ -47,5 +40,4 @@ class User extends Controller
             exit;
         }
     }
-
 }
