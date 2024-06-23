@@ -13,7 +13,7 @@ class OrderRute extends Controller
         $data['mobil'] = $this->model('Car_model')->getAllCars();
         $data['orderRute'] = $this->model('OrderRute_model')->getAllOrders();
         $this->view('templates/header', $data);
-        $this->view('orderRute/index', $data);
+        $this->view('admin/ordersRute/index', $data);
         $this->view('templates/footer');
     }
 
