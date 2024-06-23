@@ -10,6 +10,7 @@ class Order extends Controller
         }
         $data['title'] = 'Order List';
         $data['orders'] = $this->model('OrderUser_model')->getAllOrderUser();
+        $data['rute'] = $this->model('Rute_model')->getAllRute();
         $this->view('templates/header', $data);
         $this->view('order/index', $data);
         $this->view('templates/footer');
