@@ -1,9 +1,9 @@
 <div class="auth_con">
-    <div class="auth_title">
-        <h1>LOGIN</h1>
-    </div>
+    <form class="shadow" action="<?= BASEURL; ?>/auth/authenticate" method="post">
+        <div class="auth_title">
+            <h1>LOGIN</h1>
+        </div>
 
-    <form action="<?= BASEURL; ?>/auth/authenticate" method="post">
         <div class="basic_auth_field">
             <label for="EMAIL">Email </label>
             <input type="text" name="EMAIL" id="EMAIL" autofocus required>
@@ -27,5 +27,8 @@
             <button type="submit" name="login">Login</button>
         </div>
     </form>
+
+    <div class="backhome">
+        <a class="btn btn-primary shadow" href="<?= BASEURL ?>" role="button">Back to Home</a>
+    </div>
 </div>
-<a href="<?= BASEURL ?>">home</a>

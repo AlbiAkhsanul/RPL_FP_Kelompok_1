@@ -1,9 +1,9 @@
 <div class="auth_con">
-    <div class="auth_title">
-        <h1>REGISTER</h1>
-    </div>
+    <form class="shadow" action="<?= BASEURL; ?>/auth/store" method="post">
+            <div class="auth_title">
+                <h1>REGISTER</h1>
+            </div>
 
-    <form action="<?= BASEURL; ?>/auth/store" method="post">
             <div class="basic_auth_field">
                 <label for="NAMA">Nama</label>
                 <input type="text" name="NAMA" id="NAMA" autocomplete="off" autofocus required>
@@ -37,6 +37,8 @@
                 <button type="submit" name="SignUp">Sign Up</button>
             </div>
     </form>
-</div>
 
-<a href="<?= BASEURL ?>/public/">home</a>
+    <div class="backhome">
+        <a class="btn btn-primary shadow" href="<?= BASEURL ?>" role="button">Back to Home</a>
+    </div>
+</div>

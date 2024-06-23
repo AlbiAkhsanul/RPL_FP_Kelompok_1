@@ -8,17 +8,35 @@ body {
     animation: gradientBackground 4s ease infinite; */
 }
 
+/* WHEN USER NOT LOGIN YET */
+.nologin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -90%);
+}
+.nonlogin_login_reg {
+    margin-top: 20px;
+}
+/* WHEN USER NOT LOGIN YET */
+
 /* LOGIN REGISTER PAGE */
 .auth_con {
-    background-color: #CDF5FD;
     width: fit-content;
     margin: auto;
-    padding: 30px 50px 35px 50px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+.backhome {
+    width: fit-content;
+    text-align: center;
+    margin: 40px auto 40px auto;
+}
+.auth_con form {
+    padding: 30px 50px 35px 50px;
+    background-color: #CDF5FD;
 }
 .auth_title {
     margin: auto;
