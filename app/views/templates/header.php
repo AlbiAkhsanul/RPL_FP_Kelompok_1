@@ -22,6 +22,12 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="<?= BASEURL ?>">Home</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="<?= BASEURL ?>">Travels</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="<?= BASEURL ?>">My Orders</a>
+            </li>
           </ul>
           <div class="btn-group">
             <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
