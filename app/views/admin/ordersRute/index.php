@@ -26,7 +26,7 @@ $orders = $data['orderRute']
                     <td><?= $order['STATUS_PESANAN_RUTE'] ?></td>
                     <td>
                         <a href="<?= BASEURL ?>/orderRute/show/<?= $order['ID_PESANAN_RUTE'] ?>" class="btn btn-dark btn-sm">View</a>
-                        <a href="<?= BASEURL ?>/orderRute/close/<?= $order['ID_PESANAN_RUTE'] ?>" class="btn btn-dark btn-sm">View</a>
+                        <a href="<?= BASEURL ?>/orderRute/close/<?= $order['ID_PESANAN_RUTE'] ?>" class="btn btn-dark btn-sm">Close Order</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

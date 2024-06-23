@@ -31,11 +31,7 @@ class OrderRute_model
     {
         $currentTime = date('Y-m-d H:i');
         $query = "INSERT INTO {$this->table_name} 
-        (ID_RUTE, ID_SUPIR, ID_MOBIL, TANGGAL_PESANAN_RUTE, TANGGAL_PERJALANAN, 
-        JUMLAH_PENUMPANG, STATUS_PESANAN_RUTE) 
-        VALUES (:ID_RUTE, :ID_SUPIR, :ID_MOBIL, 
-        :TANGGAL_PESANAN_RUTE, :TANGGAL_PERJALANAN, :JUMLAH_PENUMPANG, 
-        :STATUS_PESANAN_RUTE)";
+        (ID_RUTE,ID_SUPIR,ID_MOBIL,TANGGAL_PESANAN_RUTE,TANGGAL_PERJALANAN,JUMLAH_PENUMPANG,TOTAL_HARGA,STATUS_PESANAN_RUTE) VALUES (:ID_RUTE,:ID_SUPIR,:ID_MOBIL,:TANGGAL_PESANAN_RUTE,:TANGGAL_PERJALANAN,:JUMLAH_PENUMPANG,:TOTAL_HARGA,:STATUS_PESANAN_RUTE)";
         $this->db->query($query);
         $this->db->bind("ID_RUTE", $data['ID_RUTE']);
         $this->db->bind("ID_SUPIR", $data['ID_SUPIR']);
@@ -43,6 +39,7 @@ class OrderRute_model
         $this->db->bind("TANGGAL_PESANAN_RUTE", $currentTime);
         $this->db->bind("TANGGAL_PERJALANAN", $data['TANGGAL_PERJALANAN']);
         $this->db->bind("JUMLAH_PENUMPANG", $data['JUMLAH_PENUMPANG']);
+        $this->db->bind("TOTAL_HARGA", $data['TOTAL_HARGA']);
         $this->db->bind("STATUS_PESANAN_RUTE", "1");
         $this->db->execute();
 

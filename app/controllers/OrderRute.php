@@ -28,7 +28,7 @@ class OrderRute extends Controller
         $data['title'] = 'Buat Pesanan Rute';
         $data['rute'] = $this->model('Rute_model')->getAllRute();
         $this->view('templates/header', $data);
-        $this->view('orderRute/create', $data);
+        $this->view('admin/ordersRute/create', $data);
         $this->view('templates/footer');
     }
 
@@ -42,11 +42,15 @@ class OrderRute extends Controller
             header('Location: ' . BASEURL . '/home');
             exit;
         }
+        $rute_id = $_POST['ID_RUTE'];
+        $tanggal_perjalanan = $_POST['TANGGAL_PERJALANAN'];
+        $data['tanggal'] = $_POST['TANGGAL_PERJALANAN'];
+        $data['rute'] = $this->model('Rute_model')->getRuteById($rute_id);
         $data['title'] = 'ListPesanan Rute';
-        $data['supir'] = $this->model('Driver_model')->getAllAvailableDrivers();
-        $data['mobil'] = $this->model('Car_model')->getAllAvailableCars();
+        $data['supir'] = $this->model('Driver_model')->getAllAvailableDrivers($tanggal_perjalanan);
+        $data['mobil'] = $this->model('Car_model')->getAllAvailableCars($tanggal_perjalanan);
         $this->view('templates/header', $data);
-        $this->view('orderRute/confirm', $data);
+        $this->view('admin/ordersRute/confirm', $data);
         $this->view('templates/footer');
     }
 
@@ -60,7 +64,7 @@ class OrderRute extends Controller
             header('Location: ' . BASEURL . '/home');
             exit;
         }
-        $car = $this->model('Car_model')->getCarById($_POST['ID_SUPIR']);
+        $car = $this->model('Car_model')->getCarById($_POST['ID_MOBIL']);
         $_POST['JUMLAH_PENUMPANG'] = $car['KAPASITAS_PENUMPANG'];
         if ($this->model('OrderRute_model')->createNewOrderRute($_POST) > 0) {
             FlashMsg::setFlash('Succesfully', 'Created', 'success');
