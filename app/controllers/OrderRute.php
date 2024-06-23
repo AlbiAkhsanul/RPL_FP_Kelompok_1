@@ -27,7 +27,7 @@ class OrderRute extends Controller
         $data['title'] = 'List Pesanan Rute';
         $data['orderRute'] = $this->model('OrderRute_model')->getAllOrders();
         $this->view('templates/header', $data);
-        $this->view('admin/ordersRute/index', $data);
+        $this->view('admin/ordersRute/confirm', $data);
         $this->view('templates/footer');
     }
 
