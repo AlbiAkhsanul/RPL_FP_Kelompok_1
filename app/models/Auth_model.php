@@ -28,6 +28,7 @@ class Auth_model
                 // cek session
                 $_SESSION['login'] = true;
                 $_SESSION['user_id'] = $row['ID_USER'];
+                $_SESSION['nama'] = $row['NAMA'];
                 $_SESSION['is_admin'] = $row['IS_ADMIN'];
                 var_dump($_SESSION);
                 // cek remember me 
