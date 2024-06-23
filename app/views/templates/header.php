@@ -34,7 +34,13 @@
               <?= $_SESSION['nama'] ?>
             </button>
             <ul class="dropdown-menu dropdown-menu-end shadow-sm">
-              <li><a class="dropdown-item text-primary" href="">Edit Profile</a></li>
+              <?php if (($_SESSION['is_admin'] == 1)) : ?>
+                <li>
+                  <div class="text-center py-3">
+                    <a class="dropdown-item text-dark" href="<?= BASEURL ?>/admin/dashboard" role="button">Dashboard Admin</a>
+                  </div>
+                </li>
+              <?php endif; ?>
               <li><a class="dropdown-item text-danger" href="<?= BASEURL ?>/auth/logout">Logout</a></li>
             </ul>
           </div>
