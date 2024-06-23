@@ -2,13 +2,22 @@ body {
     font-family: system-ui, sans-serif;
     height: 100vh;
     margin: 0;
-    background-color: #00A9FF;
     /* background: linear-gradient(45deg, #26deff, #00cff3, #008299, #004753); */
     /* background-size: 400% 400%;
     animation: gradientBackground 4s ease infinite; */
 }
 
+/* HOME */
+.homecont img {
+    width: 100vw; /* 100% of the viewport width */
+    height: 100vh; /* 100% of the viewport height */
+    object-fit: cover; 
+    filter: brightness(70%); 
+}
+/* HOME */
+
 /* WHEN USER NOT LOGIN YET */
+
 .nologin {
     position: absolute;
     top: 50%;
