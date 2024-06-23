@@ -22,7 +22,7 @@ class Admin extends Controller
         $this->view('templates/footer');
     }
 
-    public function orders()
+    public function orderRute()
     {
         if (!isset($_SESSION["login"])) {
             header('Location: ' . BASEURL . '/auth/login');
@@ -35,29 +35,12 @@ class Admin extends Controller
         }
 
         $data['title'] = "Admin Page";
-        $data['orders'] = $this->model('Order_model')->getAllOrders();
+        $data['orderRute'] = $this->model('OrderRute_model')->getAllOrders();
         $this->view('templates/header', $data);
-        $this->view('admin/orders/index', $data);
+        $this->view('admin/ordersRute/index', $data);
         $this->view('templates/footer');
     }
-    public function penalties()
-    {
-        if (!isset($_SESSION["login"])) {
-            header('Location: ' . BASEURL . '/auth/login');
-            exit;
-        }
-
-        if ($_SESSION['is_admin'] !== 1) {
-            header('Location: ' . BASEURL . '/home');
-            exit;
-        }
-
-        $data['title'] = "Admin Page";
-        $data['penalties'] = $this->model('Penalty_model')->getAllPenalties();
-        $this->view('templates/header', $data);
-        $this->view('admin/penalties/index', $data);
-        $this->view('templates/footer');
-    }
+    
     public function drivers()
     {
         if (!isset($_SESSION["login"])) {
