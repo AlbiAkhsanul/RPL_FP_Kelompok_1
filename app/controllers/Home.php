@@ -2,10 +2,11 @@
 
 class Home extends Controller
 {
-    private $activePage = 0;
     public function index()
     {
-        $data['activePage'] = $this->activePage;
+        if (isset($_SESSION['user_id'])) {
+            $data['user'] = $this->model('User_model')->getUserById($_SESSION['user_id']);
+        }
         $data['title'] = 'Home';
         $this->view('templates/header', $data);
         $this->view('home/index', $data);

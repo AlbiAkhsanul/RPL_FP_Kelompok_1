@@ -1,34 +1,24 @@
 <?php
 
-class User extends Controller 
+class User extends Controller
 {
-    private $db;
-    public function __construct()
-    {
-        $this->db = new Database;
-    }
-
-    public function index()
+    public function details($id)
     {
         if (!isset($_SESSION["login"])) {
             header("Location: " . BASEURL . "/auth/login");
             exit;
         }
-        $data['user'] = $this->model('User_model')->getUserById($_SESSION['user_id']);
+        $data['user'] = $this->model('User_model')->getUserById($id);
         $data['title'] = "Lihat Profil";
         $this->view('templates/header', $data);
         $this->view('user/details', $data);
         $this->view('templates/footer');
     }
 
-    public function edit($id) 
+    public function edit($id)
     {
         if (!isset($_SESSION["login"])) {
             header("Location: " . BASEURL . "/auth/login");
-            exit;
-        }
-        if ($_SESSION["user_id"] !== $id) {
-            header("Location: " . BASEURL . "/user");
             exit;
         }
         $data['user'] = $this->model('User_model')->getUserById($id);
@@ -38,10 +28,9 @@ class User extends Controller
         $this->view('templates/footer');
     }
 
-    public function update($id) 
+    public function update($id)
     {
-        if($this->model('User_model')->editUserById($_POST, $id) > 0)
-        {
+        if ($this->model('User_model')->editUserById($_POST, $id) > 0) {
             FlashMsg::setFlash('Succesfully', 'Updated', 'success');
             header('Location: ' . BASEURL . '/home');
             exit;
