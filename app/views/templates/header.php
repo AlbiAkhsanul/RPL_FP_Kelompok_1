@@ -14,25 +14,25 @@
 
 <body>
 
-<?php if (isset($_SESSION['user_id'])) : ?>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="<?= BASEURL ?>">Home</a>
-          </li>
-        </ul>
-        <div class="btn-group">
-          <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <?= $data['user']['NAMA'] ?>
-          </button>
-          <ul class="dropdown-menu dropdown-menu-end shadow-sm">
-            <li><a class="dropdown-item text-primary" href="">Edit Profile</a></li>
-            <li><a class="dropdown-item text-danger" href="<?= BASEURL ?>/auth/logout">Logout</a></li>
+  <?php if (isset($_SESSION['user_id'])) : ?>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="<?= BASEURL ?>">Home</a>
+            </li>
           </ul>
+          <div class="btn-group">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <?= $_SESSION['nama'] ?>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+              <li><a class="dropdown-item text-primary" href="">Edit Profile</a></li>
+              <li><a class="dropdown-item text-danger" href="<?= BASEURL ?>/auth/logout">Logout</a></li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-  </nav>
-<?php endif; ?>
+    </nav>
+  <?php endif; ?>
