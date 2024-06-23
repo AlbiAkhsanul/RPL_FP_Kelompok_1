@@ -1,0 +1,123 @@
+body {
+    font-family: system-ui, sans-serif;
+    height: 100vh;
+    margin: 0;
+    background-color: #00A9FF;
+    /* background: linear-gradient(45deg, #26deff, #00cff3, #008299, #004753); */
+    /* background-size: 400% 400%;
+    animation: gradientBackground 4s ease infinite; */
+}
+
+/* LOGIN REGISTER PAGE */
+.auth_con {
+    background-color: #CDF5FD;
+    width: fit-content;
+    margin: auto;
+    padding: 30px 50px 35px 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+.auth_title {
+    margin: auto;
+    width:  fit-content;
+    letter-spacing: 2px;
+}
+.basic_auth_field label {
+    color: #383838ee;
+    font-size: smaller;
+}
+.basic_auth_field input {
+    display: block;
+    padding: 0px 0px 0px 0px;
+    border-top: none;
+    border-right: none;
+    border-bottom: 2px solid #89CFF3;
+    border-left: none;
+    box-sizing: border-box;
+    outline: none;
+    background-color: #CDF5FD;
+    letter-spacing: 1.25px;
+    width: 280px;
+}
+.basic_auth_field input:focus{
+    outline: none;
+    border-bottom: 2px solid #00A9FF;
+}
+.basic_auth_field {
+    margin-top: 20px;
+}
+.remember_me {
+    margin-top: 15px;
+}
+.container_remeber_me {
+    color: #303030ee;
+    grid-area: r;
+    margin-top: 20px;
+    font-size: smaller;
+    line-height: 1.1;
+    display: grid;
+    grid-template-columns: 1em auto;
+    gap: 0.5em;
+    width: fit-content;
+    justify-self: start;
+    cursor: pointer;
+}
+.container_remeber_me input {
+    cursor: pointer;
+}
+.submit_btn {
+    margin-top: 30px;
+    text-align: center;
+}
+.submit_btn button {
+    background-color: #FFFFFF;
+    letter-spacing: 1px;
+    font-weight: 400;
+    padding: 4px 28px 5px 28px;
+    border: 2px solid #89CFF3;
+}
+.submit_btn button:hover {
+    font-weight: 600;
+    background-color: #dff4ff;
+    border: 2px solid #00A9FF;
+}
+.rm_dan_ca a {
+    grid-area: c;
+    font-size: smaller;
+    justify-self: end;
+    margin-top: 18px;
+    text-decoration: none;
+    color: #808080ee;
+}
+.sdhpnyakn {
+    text-align: center;
+    font-size: smaller;
+    margin-top: 18px;
+}
+.sdhpnyakn a {
+    text-decoration: none;
+    color: #808080ee
+}
+.rm_dan_ca a:hover, .sdhpnyakn a:hover {
+    color: #444444;
+}
+.rm_dan_ca {
+    display: grid;
+    grid-template-areas: 'r c';
+}
+/* LOGIN REGISTER PAGE */
+
+/* @keyframes gradientBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+} */

@@ -2,7 +2,7 @@
 
 class OrderRute_model
 {
-    private $table_name = 'orders';
+    private $table_name = 'pesanan_rute';
     private $db;
 
     public function __construct()
@@ -25,6 +25,27 @@ class OrderRute_model
         }
 
         return $data;
+    }
+
+    public function createNewOrderRute($data)
+    {
+        $currentTime = date('Y-m-d H:i');
+        $query = "INSERT INTO {$this->table_name} 
+        (ID_RUTE, ID_SUPIR, ID_MOBIL, TANGGAL_PESANAN_RUTE, 
+        JUMLAH_PENUMPANG, STATUS_PESANAN_RUTE) 
+        VALUES (:ID_RUTE, :ID_SUPIR, :ID_MOBIL, 
+        :TANGGAL_PESANAN_RUTE, :JUMLAH_PENUMPANG, 
+        :STATUS_PESANAN_RUTE)";
+        $this->db->query($query);
+        $this->db->bind("ID_RUTE", $data['ID_RUTE']);
+        $this->db->bind("ID_SUPIR", $data['ID_SUPIR']);
+        $this->db->bind("ID_MOBIL", $data['ID_MOBIL']);
+        $this->db->bind("TANGGAL_PESANAN_RUTE", $currentTime);
+        $this->db->bind("JUMLAH_PENUMPANG", $data['JUMLAH_PENUMPANG']);
+        $this->db->bind("STATUS_PESANAN_RUTE", "Tersedia");
+        $this->db->execute();
+
+        return $this->db->affectedRowCount();
     }
 
     public function createNewOrder($data)
