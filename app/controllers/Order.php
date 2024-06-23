@@ -26,7 +26,7 @@ class Order extends Controller
             $data['is_driver'] = 1;
         }
         $data['title'] = 'Create Order';
-        $data['car'] = $this->model('Car_model')->getCarById($id);
+        $data['order_rute'] = $this->model('OrderRute_model')->gerOrderRuteById($id);
         $this->view('templates/header', $data);
         $this->view('order/create', $data);
         $this->view('templates/footer');
