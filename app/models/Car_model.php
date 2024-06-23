@@ -151,4 +151,20 @@ class Car_model
         // Menghapus foto
         unlink($string);
     }
+
+    public function getAllAvailableCars($tanggal)
+    {
+        $query = 
+        "SELECT s.*
+        FROM mobil s
+        WHERE s.ID_MOBIL NOT IN (
+            SELECT p.ID_MOBIL
+            FROM pesanan_rute p
+            WHERE p.TANGGAL_PERJALANAN = :TANGGAL_PERJALANAN
+        )";
+        
+        $this->db->query($query);
+        $this->db->bind('TANGGAL_PERJALANAN', $tanggal);
+        return $this->db->resultSet();
+    }
 }

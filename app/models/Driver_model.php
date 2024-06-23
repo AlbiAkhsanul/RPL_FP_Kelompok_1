@@ -28,6 +28,7 @@ class Driver_model
         $this->db->execute();
         return $this->db->affectedRowCount();
     }
+
     public function getDriverById($id)
     {
         $this->db->query("SELECT * FROM {$this->table_name} WHERE ID_SUPIR=:ID_SUPIR");
@@ -61,5 +62,21 @@ class Driver_model
         $this->db->execute();
 
         return $this->db->affectedRowCount();
+    }
+
+    public function getAllAvailableDrivers($tanggal)
+    {
+        $query = 
+        "SELECT s.*
+        FROM supir s
+        WHERE s.ID_SUPIR NOT IN (
+            SELECT p.ID_SUPIR
+            FROM pesanan_rute p
+            WHERE p.TANGGAL_PERJALANAN = :TANGGAL_PERJALANAN
+        )";
+        
+        $this->db->query($query);
+        $this->db->bind('TANGGAL_PERJALANAN', $tanggal);
+        return $this->db->resultSet();
     }
 }

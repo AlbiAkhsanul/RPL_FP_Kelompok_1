@@ -31,53 +31,21 @@ class OrderRute_model
     {
         $currentTime = date('Y-m-d H:i');
         $query = "INSERT INTO {$this->table_name} 
-        (ID_RUTE, ID_SUPIR, ID_MOBIL, TANGGAL_PESANAN_RUTE, 
+        (ID_RUTE, ID_SUPIR, ID_MOBIL, TANGGAL_PESANAN_RUTE, TANGGAL_PERJALANAN, 
         JUMLAH_PENUMPANG, STATUS_PESANAN_RUTE) 
         VALUES (:ID_RUTE, :ID_SUPIR, :ID_MOBIL, 
-        :TANGGAL_PESANAN_RUTE, :JUMLAH_PENUMPANG, 
+        :TANGGAL_PESANAN_RUTE, :TANGGAL_PERJALANAN, :JUMLAH_PENUMPANG, 
         :STATUS_PESANAN_RUTE)";
         $this->db->query($query);
         $this->db->bind("ID_RUTE", $data['ID_RUTE']);
         $this->db->bind("ID_SUPIR", $data['ID_SUPIR']);
         $this->db->bind("ID_MOBIL", $data['ID_MOBIL']);
         $this->db->bind("TANGGAL_PESANAN_RUTE", $currentTime);
+        $this->db->bind("TANGGAL_PERJALANAN", $data['TANGGAL_PERJALANAN']);
         $this->db->bind("JUMLAH_PENUMPANG", $data['JUMLAH_PENUMPANG']);
-        $this->db->bind("STATUS_PESANAN_RUTE", "Tersedia");
+        $this->db->bind("STATUS_PESANAN_RUTE", "1");
         $this->db->execute();
 
-        return $this->db->affectedRowCount();
-    }
-
-    public function createNewOrder($data)
-    {
-        $order = $data['POST'];
-        $driver_id = $data['driver_id'];
-        $car_id = $data['POST']['car_id'];
-
-        $this->changeCarStatus($car_id, 0);
-
-        if ($driver_id != 0) {
-            $this->changeDriverStatus($driver_id, 0);
-        }
-
-        $currentTime = date('Y-m-d H:i');
-
-        $query = "INSERT INTO {$this->table_name} (method_id,driver_id,car_id,user_id,tanggal_order,jenis_sewa,tanggal_sewa,durasi_sewa,tanggal_transaksi,status_order,total_harga) VALUES 
-                  (:method_id,:driver_id,:car_id,:user_id,:tanggal_order,:jenis_sewa,:tanggal_sewa,:durasi_sewa,:tanggal_transaksi,:status_order,:total_harga)";
-        $this->db->query($query);
-        $this->db->bind('method_id', $order['method_id']);
-        $this->db->bind('driver_id', $driver_id);
-        $this->db->bind('car_id', $order['car_id']);
-        $this->db->bind('user_id', $_SESSION['user_id']);
-        $this->db->bind('tanggal_order', $currentTime);
-        $this->db->bind('jenis_sewa', $order['jenis_sewa']);
-        $this->db->bind('tanggal_sewa', $order['tanggal_sewa']);
-        $this->db->bind('durasi_sewa', $order['durasi_sewa']);
-        $this->db->bind('tanggal_transaksi', $currentTime);
-        $this->db->bind('status_order', "Pending");
-        $this->db->bind('total_harga', $order['total_harga']);
-
-        $this->db->execute();
         return $this->db->affectedRowCount();
     }
 
