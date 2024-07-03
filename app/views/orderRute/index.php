@@ -4,7 +4,7 @@ $routes = $data['rute'];
 ?>
 
 <div class="table-responsive orderrouteindex">
-    <h3>List Order Rute</h3>
+    <h3 class="mb-4">List Order Rute</h3>
 
     <table class="table table-striped table-bordered shadow-sm">
         <thead>
@@ -37,3 +37,4 @@ $routes = $data['rute'];
             <?php endforeach; ?>
         </tbody>
     </table>
+</div>
