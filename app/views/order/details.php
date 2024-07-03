@@ -10,7 +10,7 @@ $order = $data['order'];
         <div class="row justify-content-center">
             <div class="col-12 col-xxl-12">
                 <div class="card border-light-subtle shadow-sm align-items-center">
-                    <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
+                    <div class="col-12 col-md-8 d-flex align-items-center justify-content-center">
                         <div class="col-12 col-lg-11 col-xl-10">
                             <div class="card-body p-3 p-md-4 p-xl-5">
                                 <div class="row">
@@ -34,15 +34,15 @@ $order = $data['order'];
                                         </div>
                                     </div>
                                     <div class="col-12 d-flex justify-content-between">
-                                        <label for="tipe_transmisi">Asal</label>
+                                        <label for="durasi_sewa">Alamat Penjemputan:</label>
                                         <div class="ms-auto">
-                                            <?= $data['rute']['ASAL'] ?>
+                                            <?= $order['ALAMAT_PENJEMPUTAN'] ?>
                                         </div>
                                     </div>
                                     <div class="col-12 d-flex justify-content-between">
-                                        <label for="total_harga">Tujuan:</label>
+                                        <label for="durasi_sewa">Alamat Penurunan:</label>
                                         <div class="ms-auto">
-                                            <?= $data['rute']['TUJUAN'] ?>
+                                            <?= $order['ALAMAT_PENURUNAN'] ?>
                                         </div>
                                     </div>
                                     <div class="col-12 d-flex justify-content-between">
