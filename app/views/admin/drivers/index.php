@@ -13,9 +13,8 @@
         <?php else : ?>
             <?php foreach ($data['drivers'] as $driver) : ?>
                 <div class="mb-3">
-                    <a href="<?= BASEURL ?>/driver/show/<?= $driver['ID_SUPIR'] ?>" class="btn btn-link">
-                        <h5 class="d-inline"><?= $driver['NAMA'] ?></h5>
-                    </a><br>
+                    <h4 class="d-inline"><?= $driver['NAMA'] ?></h4>
+                    <br>
                     <a href="<?= BASEURL ?>/driver/edit/<?= $driver['ID_SUPIR'] ?>" class="btn btn-primary btn-sm">
                         Edit Driver
                     </a>

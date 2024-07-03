@@ -1,8 +1,8 @@
 <?php
 $driver = $data['driver'];
 ?>
-<a href="<?= BASEURL ?>/admin/drivers/index" class="btn btn-secondary mt-3 ml-3">Kembali</a>
 <div class="container mt-5">
+    <a href="<?= BASEURL ?>/admin/drivers/index" class="btn btn-secondary mb-3 ml-3">Kembali</a>
     <h1 class="mb-4">Edit Driver</h1>
 
     <form action="<?= BASEURL; ?>/driver/update/<?= $driver['ID_SUPIR'] ?>" method="post">
