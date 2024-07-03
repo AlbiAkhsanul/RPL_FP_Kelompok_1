@@ -59,12 +59,13 @@ class Order extends Controller
     public function show($id)
     {
         $data['title'] = 'Order Details';
-        $data['order'] = $this->model('Order_model')->getOrderById($id);
+        $data['order'] = $this->model('OrderUser_model')->getOrderUseryId($id);
         if (!$data['order']) {
             header('Location: ' . BASEURL . '/home');
             exit;
         }
-        $data['penalties'] = $this->model('Penalty_model')->getPenaltiesyByOrderId($id);
+        $rute_id = $data['order']['ID_RUTE'];
+        $data['rute'] = $this->model('Rute_model')->getRuteById($rute_id);
         $this->view('templates/header', $data);
         $this->view('order/details', $data);
         $this->view('templates/footer');

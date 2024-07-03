@@ -1,5 +1,5 @@
 <?php
-$order = $data['order'];
+$order = $data['orderRute'];
 ?>
 <!-- <h1>
     Ini Halaman Detail Orders
@@ -16,7 +16,7 @@ $order = $data['order'];
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <h4 class="text-center">Order Details</h4>
+                                            <h4 class="text-center">Order Rute Details</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -46,6 +46,24 @@ $order = $data['order'];
                                         </div>
                                     </div>
                                     <div class="col-12 d-flex justify-content-between">
+                                        <label for="tanggal_sewa">Supir:</label>
+                                        <div class="ms-auto">
+                                            <?= $data['supir']['NAMA'] ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-between">
+                                        <label for="tanggal_kembali">Nopol Kendaraan:</label>
+                                        <div class="ms-auto">
+                                            <?= $data['mobil']['NOPOL'] ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-between">
+                                        <label for="durasi_sewa">Kapasitas Penumpang:</label>
+                                        <div class="ms-auto">
+                                            <?= $data['mobil']['KAPASITAS_PENUMPANG'] ?> Orang
+                                        </div>
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-between">
                                         <label for="durasi_sewa">Total Harga:</label>
                                         <div class="ms-auto">
                                             Rp <?= $order['TOTAL_HARGA'] ?>
@@ -54,7 +72,7 @@ $order = $data['order'];
                                     <div class="col-12 d-flex justify-content-between">
                                         <label for="durasi_sewa">Status Order:</label>
                                         <div class="ms-auto">
-                                            <?= $order['STATUS_PESANAN_USER'] ?>
+                                            <?= $order['STATUS_PESANAN_RUTE'] ?>
                                         </div>
                                     </div>
                                 </div>

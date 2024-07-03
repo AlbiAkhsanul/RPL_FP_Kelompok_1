@@ -31,6 +31,25 @@ class OrderRute extends Controller
         $this->view('templates/footer');
     }
 
+    public function show($id)
+    {
+        $data['title'] = 'Order Details';
+        $data['orderRute'] = $this->model('OrderRute_model')->getOrderRuteById($id);
+        if (!$data['orderRute']) {
+            header('Location: ' . BASEURL . '/home');
+            exit;
+        }
+        $rute_id = $data['orderRute']['ID_RUTE'];
+        $supir_id = $data['orderRute']['ID_SUPIR'];
+        $mobil_id = $data['orderRute']['ID_MOBIL'];
+        $data['rute'] = $this->model('Rute_model')->getRuteById($rute_id);
+        $data['supir'] = $this->model('Driver_model')->getDriverById($supir_id);
+        $data['mobil'] = $this->model('Car_model')->getCarById($mobil_id);
+        $this->view('templates/header', $data);
+        $this->view('orderRute/details', $data);
+        $this->view('templates/footer');
+    }
+
     public function create()
     {
         if (!isset($_SESSION["login"])) {

@@ -10,7 +10,7 @@ $routes = $data['rute'];
         <thead>
             <tr>
                 <th>Order ID</th>
-                <th>Tanggal Perjalananr</th>
+                <th>Tanggal Perjalanan</th>
                 <th>Rute</th>
                 <th>Total Harga</th>
                 <th>Status Order</th>
@@ -20,7 +20,7 @@ $routes = $data['rute'];
         <tbody>
             <?php foreach ($orders as $order) : ?>
                 <tr>
-                    <td><?= $order['ID_PESANAN_RUTE'] ?></td>
+                    <td><?= $order['ID_PESANAN_USER'] ?></td>
                     <td><?= $order['TANGGAL_PERJALANAN'] ?></td>
                     <td>
                         <?php foreach ($routes as $route) : ?>
@@ -32,10 +32,7 @@ $routes = $data['rute'];
                     <td><?= $order['TOTAL_HARGA'] ?></td>
                     <td><?= $order['STATUS_PESANAN_USER'] ?></td>
                     <td>
-                        <a href="<?= BASEURL ?>/orderRute/show/<?= $order['ID_PESANAN_RUTE'] ?>" class="btn btn-dark btn-sm">View</a>
-                        <?php if ($_SESSION['is_admin'] == 1) : ?>
-                            <a href="<?= BASEURL ?>/orderRute/close/<?= $order['ID_PESANAN_RUTE'] ?>" class="btn btn-dark btn-sm">Close Order</a>
-                        <?php endif ?>
+                        <a href="<?= BASEURL ?>/order/show/<?= $order['ID_PESANAN_USER'] ?>" class="btn btn-dark btn-sm">View</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
